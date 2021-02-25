@@ -52,6 +52,7 @@ int main(int argc, char *argv[])
         err(EX_DATAERR, "%s", dirname);
     }
     DIR *df; // open the directory to start reading the file
+    chdir(dirname); //Change directory
 
     //Set df to be a pointer to the directory stream and assert for no errors
     if ((df = opendir(".")) == NULL)
@@ -60,7 +61,7 @@ int main(int argc, char *argv[])
         exit(1);
     }
 
-    chdir(dirname); //Change directory
+    
     int count =1;
     //While there are still objects in directory
     while ((entry = readdir(df)) != NULL)
@@ -104,7 +105,7 @@ int main(int argc, char *argv[])
         // if the file is a character special file or block special file
         if (S_ISCHR(info.st_mode) || S_ISBLK(info.st_mode))
         {
-            printf("---------------------FILE NO.%d-------------------\n",count);
+            printf("---------------------Speacial or Block FILE NO.%d-------------------\n",count);
             printf("file permission =%9s\nlink=%ld\nusername=%8s\ngroupName=%8s\ni-node=%2ld\
             \nmajor=%3d,minor=%3d\nacess time=%s\nmodify time=%s\nchange time=%s\nfileName=%2s\n",
                    rwx,                 //file permission
@@ -121,7 +122,7 @@ int main(int argc, char *argv[])
         }
         else
         {
-            printf("---------------------FILE NO.%d-------------------\n",count);
+            printf("--------------------- FILE NO.%d-------------------\n",count);
 
             printf("file permission=%9s\nlink=%ld\nusername=%8s\ngroup name=%8s\
              \nfile size = %5lld\ni-node=%2ld\nacess time=%s\nmodify time=%s\nchange time=%s\
