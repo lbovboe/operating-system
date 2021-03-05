@@ -1,0 +1,4 @@
+total 24
+-rwxrwxr-x 1 caijianbo caijianbo     0 Mar  5 20:20 result.txt
+-rwxrwxr-x 1 caijianbo caijianbo 16784 Mar  5 20:20 main
+-rw-rw-r-- 1 caijianbo caijianbo   508 Mar  5 20:20 dup.c
